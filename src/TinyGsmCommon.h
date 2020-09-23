@@ -101,7 +101,7 @@ uint32_t TinyGsmAutoBaud(T& SerialAT, uint32_t minimum = 9600,
     if (rate < minimum || rate > maximum) continue;
 
     DBG("Trying baud rate", rate, "...");
-    SerialAT.begin(rate);
+    SerialAT.baud(rate);
     delay(10);
     for (int j = 0; j < 10; j++) {
       SerialAT.print("AT\r\n");
@@ -112,7 +112,7 @@ uint32_t TinyGsmAutoBaud(T& SerialAT, uint32_t minimum = 9600,
       }
     }
   }
-  SerialAT.begin(minimum);
+  SerialAT.baud(minimum);
   return 0;
 }
 

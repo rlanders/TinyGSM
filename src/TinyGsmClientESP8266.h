@@ -15,10 +15,10 @@
 #define TINY_GSM_MUX_COUNT 5
 #define TINY_GSM_NO_MODEM_BUFFER
 
-#include "TinyGsmModem.tpp"
-#include "TinyGsmSSL.tpp"
-#include "TinyGsmTCP.tpp"
-#include "TinyGsmWifi.tpp"
+#include "TinyGsmModem.hpp"
+#include "TinyGsmSSL.hpp"
+#include "TinyGsmTCP.hpp"
+#include "TinyGsmWifi.hpp"
 
 #define GSM_NL "\r\n"
 static const char GSM_OK[] TINY_GSM_PROGMEM    = "OK" GSM_NL;

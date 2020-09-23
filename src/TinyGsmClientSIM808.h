@@ -11,7 +11,7 @@
 // #pragma message("TinyGSM:  TinyGsmClientSIM808")
 
 #include "TinyGsmClientSIM800.h"
-#include "TinyGsmGPS.tpp"
+#include "TinyGsmGPS.hpp"
 
 class TinyGsmSim808 : public TinyGsmSim800, public TinyGsmGPS<TinyGsmSim808> {
   friend class TinyGsmGPS<TinyGsmSim808>;

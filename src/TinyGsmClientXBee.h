@@ -21,14 +21,14 @@
 // here)
 #define TINY_GSM_XBEE_GUARD_TIME 1010
 
-#include "TinyGsmBattery.tpp"
-#include "TinyGsmGPRS.tpp"
-#include "TinyGsmModem.tpp"
-#include "TinyGsmSMS.tpp"
-#include "TinyGsmSSL.tpp"
-#include "TinyGsmTCP.tpp"
-#include "TinyGsmTemperature.tpp"
-#include "TinyGsmWifi.tpp"
+#include "TinyGsmBattery.hpp"
+#include "TinyGsmGPRS.hpp"
+#include "TinyGsmModem.hpp"
+#include "TinyGsmSMS.hpp"
+#include "TinyGsmSSL.hpp"
+#include "TinyGsmTCP.hpp"
+#include "TinyGsmTemperature.hpp"
+#include "TinyGsmWifi.hpp"
 
 #define GSM_NL "\r"
 static const char GSM_OK[] TINY_GSM_PROGMEM    = "OK" GSM_NL;

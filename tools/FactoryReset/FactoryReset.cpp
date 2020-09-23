@@ -44,28 +44,28 @@ TinyGsm modem(debugger);
 
 void setup() {
   // Set console baud rate
-  SerialMon.begin(115200);
+  SerialMon.baud(115200);
   delay(10);
 
   // Set GSM module baud rate
-  SerialAT.begin(9600);
+  SerialAT.baud(9600);
   delay(6000);
 
   if (!modem.init()) {
-    SerialMon.println(F("***********************************************************"));
-    SerialMon.println(F(" Cannot initialize modem!"));
-    SerialMon.println(F("   Use File -> Examples -> TinyGSM -> tools -> AT_Debug"));
-    SerialMon.println(F("   to find correct configuration"));
-    SerialMon.println(F("***********************************************************"));
+    SerialMon.printf("***********************************************************"));
+    SerialMon.printf(" Cannot initialize modem!"));
+    SerialMon.printf("   Use File -> Examples -> TinyGSM -> tools -> AT_Debug"));
+    SerialMon.printf("   to find correct configuration"));
+    SerialMon.printf("***********************************************************"));
     return;
   }
 
   bool ret = modem.factoryDefault();
 
-  SerialMon.println(F("***********************************************************"));
+  SerialMon.printf("***********************************************************"));
   SerialMon.print  (F(" Return settings to Factory Defaults: "));
   SerialMon.println((ret) ? "OK" : "FAIL");
-  SerialMon.println(F("***********************************************************"));
+  SerialMon.printf("***********************************************************"));
 }
 
 void loop() {

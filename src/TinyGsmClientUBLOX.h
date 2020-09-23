@@ -15,16 +15,16 @@
 #define TINY_GSM_MUX_COUNT 7
 #define TINY_GSM_BUFFER_READ_AND_CHECK_SIZE
 
-#include "TinyGsmBattery.tpp"
-#include "TinyGsmCalling.tpp"
-#include "TinyGsmGPRS.tpp"
-#include "TinyGsmGPS.tpp"
-#include "TinyGsmGSMLocation.tpp"
-#include "TinyGsmModem.tpp"
-#include "TinyGsmSMS.tpp"
-#include "TinyGsmSSL.tpp"
-#include "TinyGsmTCP.tpp"
-#include "TinyGsmTime.tpp"
+#include "TinyGsmBattery.hpp"
+#include "TinyGsmCalling.hpp"
+#include "TinyGsmGPRS.hpp"
+#include "TinyGsmGPS.hpp"
+#include "TinyGsmGSMLocation.hpp"
+#include "TinyGsmModem.hpp"
+#include "TinyGsmSMS.hpp"
+#include "TinyGsmSSL.hpp"
+#include "TinyGsmTCP.hpp"
+#include "TinyGsmTime.hpp"
 
 #define GSM_NL "\r\n"
 static const char GSM_OK[] TINY_GSM_PROGMEM    = "OK" GSM_NL;

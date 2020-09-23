@@ -9,14 +9,14 @@
 TinyGsm modem(Serial);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.baud(115200);
   delay(6000);
 }
 
 void loop() {
   // Test the basic functions
-  modem.begin();
-  modem.begin("1234");
+  modem.baud();
+  modem.baud("1234");
   modem.init();
   modem.init("1234");
   modem.setBaud(115200);
