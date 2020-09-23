@@ -1,6 +1,6 @@
 ![TinyGSM logo](https://cdn.rawgit.com/vshymanskyy/TinyGSM/d18e93dc51fe988a0b175aac647185457ef640b5/extras/logo.svg)
 
-A small Arduino library for GSM modules, that just works.
+A small mbed library for GSM modules, that just works.
 <!---
 [![GitHub download](https://img.shields.io/github/downloads/vshymanskyy/TinyGSM/total.svg)](https://github.com/vshymanskyy/TinyGSM/releases/latest)--->
 [![GitHub version](https://img.shields.io/github/release/vshymanskyy/TinyGSM.svg)](https://github.com/vshymanskyy/TinyGSM/releases/latest)
@@ -17,22 +17,11 @@ If you like **TinyGSM** - give it a star, or fork it and contribute!
 You can also join our chat:
 [![Gitter](https://img.shields.io/gitter/room/vshymanskyy/TinyGSM.svg)](https://gitter.im/tinygsm)
 
-### Arduino Client interface support
+### mbed Client interface support
 This library is easy to integrate with lots of sketches which use Ethernet or WiFi.
 **PubSubClient ([MQTT](http://mqtt.org/))**, **[Blynk](http://blynk.cc)**, **HTTP Client** and **File Download** examples are provided.
 
 ![examples](/extras/examples.png)
-
-### TinyGSM is tiny
-The complete WebClient example for Arduino Uno (via Software Serial) takes little resources:
-```
-Sketch uses 15022 bytes (46%) of program storage space. Maximum is 32256 bytes.
-Global variables use 574 bytes (28%) of dynamic memory, leaving 1474 bytes for local variables. Maximum is 2048 bytes.
-```
-Arduino GSM library uses 15868 bytes (49%) of Flash and 1113 bytes (54%) of RAM in a similar scenario.
-TinyGSM also pulls data gently from the modem (whenever possible), so it can operate on very little RAM.
-**Now, you have more space for your experiments.**
-
 
 ## Supported modems
 
@@ -78,7 +67,6 @@ Watch this repo for new updates! And of course, contributions are welcome ;)
     - ALL modules support TCP connections
     - Most modules support multiple simultaneous connections:
         - A6/A7 - 8
-        - ESP8266 - 5
         - Neoway M590 - 2
         - Quectel BG96 - 12
         - Quectel M95 - 6
