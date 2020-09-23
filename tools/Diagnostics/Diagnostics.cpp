@@ -118,7 +118,7 @@ const int  port = 80;
 
 void setup() {
   // Set console baud rate
-  SerialMon.begin(115200);
+  SerialMon.baud(115200);
   delay(10);
 
   // !!!!!!!!!!!
@@ -129,7 +129,7 @@ void setup() {
 
   // Set GSM module baud rate
   TinyGsmAutoBaud(SerialAT, GSM_AUTOBAUD_MIN, GSM_AUTOBAUD_MAX);
-  // SerialAT.begin(9600);
+  // SerialAT.baud(9600);
   delay(6000);
 }
 
@@ -139,18 +139,18 @@ void loop() {
   SerialMon.print("Initializing modem...");
   if (!modem.restart()) {
   // if (!modem.init()) {
-    SerialMon.println(F(" [fail]"));
-    SerialMon.println(F("************************"));
-    SerialMon.println(F(" Is your modem connected properly?"));
-    SerialMon.println(F(" Is your serial speed (baud rate) correct?"));
-    SerialMon.println(F(" Is your modem powered on?"));
-    SerialMon.println(F(" Do you use a good, stable power source?"));
-    SerialMon.println(F(" Try useing File -> Examples -> TinyGSM -> tools -> AT_Debug to find correct configuration"));
-    SerialMon.println(F("************************"));
+    SerialMon.printf(" [fail]"));
+    SerialMon.printf("************************"));
+    SerialMon.printf(" Is your modem connected properly?"));
+    SerialMon.printf(" Is your serial speed (baud rate) correct?"));
+    SerialMon.printf(" Is your modem powered on?"));
+    SerialMon.printf(" Do you use a good, stable power source?"));
+    SerialMon.printf(" Try useing File -> Examples -> TinyGSM -> tools -> AT_Debug to find correct configuration"));
+    SerialMon.printf("************************"));
     delay(10000);
     return;
   }
-  SerialMon.println(F(" [OK]"));
+  SerialMon.printf(" [OK]"));
 
   String modemInfo = modem.getModemInfo();
   SerialMon.print("Modem Info: ");
@@ -181,32 +181,32 @@ void loop() {
 
   SerialMon.print("Waiting for network...");
   if (!modem.waitForNetwork(600000L)) {  // You may need lengthen this in poor service areas
-    SerialMon.println(F(" [fail]"));
-    SerialMon.println(F("************************"));
-    SerialMon.println(F(" Is your sim card locked?"));
-    SerialMon.println(F(" Do you have a good signal?"));
-    SerialMon.println(F(" Is antenna attached?"));
-    SerialMon.println(F(" Does the SIM card work with your phone?"));
-    SerialMon.println(F("************************"));
+    SerialMon.printf(" [fail]"));
+    SerialMon.printf("************************"));
+    SerialMon.printf(" Is your sim card locked?"));
+    SerialMon.printf(" Do you have a good signal?"));
+    SerialMon.printf(" Is antenna attached?"));
+    SerialMon.printf(" Does the SIM card work with your phone?"));
+    SerialMon.printf("************************"));
     delay(10000);
     return;
   }
-  SerialMon.println(F(" [OK]"));
+  SerialMon.printf(" [OK]"));
 
 #if TINY_GSM_USE_GPRS
   // GPRS connection parameters are usually set after network registration
   SerialMon.print("Connecting to ");
   SerialMon.print(apn);
   if (!modem.gprsConnect(apn, gprsUser, gprsPass)) {
-    SerialMon.println(F(" [fail]"));
-    SerialMon.println(F("************************"));
-    SerialMon.println(F(" Is GPRS enabled by network provider?"));
-    SerialMon.println(F(" Try checking your card balance."));
-    SerialMon.println(F("************************"));
+    SerialMon.printf(" [fail]"));
+    SerialMon.printf("************************"));
+    SerialMon.printf(" Is GPRS enabled by network provider?"));
+    SerialMon.printf(" Try checking your card balance."));
+    SerialMon.printf("************************"));
     delay(10000);
     return;
   }
-  SerialMon.println(F(" [OK]"));
+  SerialMon.printf(" [OK]"));
 #endif
 
   IPAddress local = modem.localIP();
@@ -216,11 +216,11 @@ void loop() {
   SerialMon.print(F("Connecting to "));
   SerialMon.print(server);
   if (!client.connect(server, port)) {
-    SerialMon.println(F(" [fail]"));
+    SerialMon.printf(" [fail]"));
     delay(10000);
     return;
   }
-  SerialMon.println(F(" [OK]"));
+  SerialMon.printf(" [OK]"));
 
   // Make a HTTP GET request:
   client.print(String("GET ") + resource + " HTTP/1.0\r\n");
@@ -250,25 +250,25 @@ void loop() {
   }
 
   client.stop();
-  SerialMon.println(F("Server disconnected"));
+  SerialMon.printf("Server disconnected"));
 
 #if TINY_GSM_USE_WIFI
   modem.networkDisconnect();
-  SerialMon.println(F("WiFi disconnected"));
+  SerialMon.printf("WiFi disconnected"));
 #endif
 #if TINY_GSM_USE_GPRS
   modem.gprsDisconnect();
-  SerialMon.println(F("GPRS disconnected"));
+  SerialMon.printf("GPRS disconnected"));
 #endif
 
   SerialMon.println();
-  SerialMon.println(F("************************"));
+  SerialMon.printf("************************"));
   SerialMon.print  (F(" Received: "));
   SerialMon.print(bytesReceived);
-  SerialMon.println(F(" bytes"));
+  SerialMon.printf(" bytes"));
   SerialMon.print  (F(" Test:     "));
   SerialMon.println((bytesReceived == 121) ? "PASSED" : "FAILED");
-  SerialMon.println(F("************************"));
+  SerialMon.printf("************************"));
 
   // Do nothing forevermore
   while (true) {

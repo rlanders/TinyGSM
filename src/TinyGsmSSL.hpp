@@ -1,5 +1,5 @@
 /**
- * @file       TinyGsmSSL.tpp
+ * @file       TinyGsmSSL.hpp
  * @author     Volodymyr Shymanskyy
  * @license    LGPL-3.0
  * @copyright  Copyright (c) 2016 Volodymyr Shymanskyy

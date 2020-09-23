@@ -28,10 +28,10 @@ AltSoftSerial BOARD_TX;
 
 void setup() {
   // Set console baud rate
-  SPY.begin(115200);
+  SPY.baud(115200);
 
-  MODEM_TX.begin(BAUD_RATE);
-  BOARD_TX.begin(BAUD_RATE);
+  MODEM_TX.baud(BAUD_RATE);
+  BOARD_TX.baud(BAUD_RATE);
   delay(6000);
 }
 
